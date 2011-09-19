@@ -15,7 +15,8 @@ The conversion process loses some data. If
 you know of an RDF vocabularly that matches 
 MARC21 perfectly, please contact the author.
 
-Once converted, your 
+Once converted, your graph can be merged with 
+other graphs.
 
 
 name
@@ -59,7 +60,7 @@ By example
     catalog.mrc.gz file and store the graph
     on disk so that it can be used by RDFlib:
 
-    >>> okrand.main('catalog.mrc', 
+    >>> graph = okrand.main('catalog.mrc', 
     ...     store_type='Sleepycat', 
     ...     store_id='my_catalog',
     ...     graph_id='my_catalog',

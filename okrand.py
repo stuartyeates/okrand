@@ -430,10 +430,6 @@ def main(fd, store_type=None, store_id=None, graph_id=None, gzipped=False):
 
     graph = Graph(store=store, identifier=graph_id)
 
-    if gzipped:
-        import gzip
-        open = gzip.open
-
     try:
         records = MARCReader(open(fd))
 
@@ -443,7 +439,8 @@ def main(fd, store_type=None, store_id=None, graph_id=None, gzipped=False):
                 graph.commit()
             if i % 10000 == 0:
                 print i
+
     finally:
-        records.close()
+        graph.commit()
 
     return graph
